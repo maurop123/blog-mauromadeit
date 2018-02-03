@@ -10,13 +10,13 @@
             >
           </v-avatar>
           <div class="headline">Mauro Made It</div>
-          <div class="subheading text-xs-center grey--text pt-1 pb-3">Vue Specialist &middot; Digital Nomad &middot;</div>
-          <v-layout justify-space-around>
-            <a href="javascript:;" class="body-2">Home</a>
-            <a href="javascript:;" class="body-2">About</a>
-            <a href="javascript:;" class="body-2">Github</a>
-            <a href="javascript:;" class="body-2">Other</a>
-          </v-layout>
+          <div class="subheading text-xs-center grey--text pt-1 pb-3">Vue Specialist &middot; Digital Nomad</div>
+          <!-- <v&#45;layout justify&#45;space&#45;around> -->
+          <!--   <a href="javascript:;" class="body&#45;2">Home</a> -->
+          <!--   <a href="javascript:;" class="body&#45;2">About</a> -->
+          <!--   <a href="javascript:;" class="body&#45;2">Github</a> -->
+          <!--   <a href="javascript:;" class="body&#45;2">Other</a> -->
+          <!-- </v&#45;layout> -->
         </div>
       </v-flex>
       <v-flex xs12 md5 offset-md2>
