@@ -52,6 +52,14 @@ Say goodbye to subtle social cues like body language or facial twitches that tel
 
 You may find a lot of articles or books telling you how to be a digital nomad, travel efficiently, or be effective in remote work, and while they're likely to help, none can tell you if you're doing it right. Mostly you gotta figure it out on your own. Since getting started is the hard part
 
+## Mobile Hotspot
+
+If you plan on travelling 
+
+## Setup Offline Workflow
+
+The truth is you won't always have internet, and while 
+
 ## Discipline
 
 As inpiring as the novelty is, it can also be very distracting.
