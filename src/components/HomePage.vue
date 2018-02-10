@@ -47,10 +47,10 @@
               </v-card-actions>
             </v-card>
           </v-flex>
-          <v-flex align-baseline>
-            <v-pagination v-model="postsPage" :length="postsPages" />
-          </v-flex>
         </v-layout>
+        <v-flex class="text-xs-center">
+          <v-pagination v-model="postsPage" :length="postsPages" circle />
+        </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
@@ -86,6 +86,6 @@
   }
 
   .page-height {
-    min-height: 900px;
+    min-height: 864px;
   }
 </style>
