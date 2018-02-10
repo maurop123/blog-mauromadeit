@@ -36,7 +36,6 @@ export function getFeed(url) {
       var item;
      
       while (item = stream.read()) {
-        // console.log('stream item', item);
         obs.next(item)
       }
     });

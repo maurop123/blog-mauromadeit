@@ -24,7 +24,6 @@ const actions = {
     .filter(item => item.categories.length > 0)
     .subscribe(post => {
       const { title, link } = post
-      // console.log('post', post)
       const img = parseImage(post.description) || null
       
       commit('pushPost', {

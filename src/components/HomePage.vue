@@ -10,13 +10,54 @@
             >
           </v-avatar>
           <div class="headline">Mauro Made It</div>
-          <div class="subheading text-xs-center grey--text pt-1 pb-3">Vue Specialist &middot; Digital Nomad</div>
-          <!-- <v&#45;layout justify&#45;space&#45;around> -->
-          <!--   <a href="javascript:;" class="body&#45;2">Home</a> -->
-          <!--   <a href="javascript:;" class="body&#45;2">About</a> -->
-          <!--   <a href="javascript:;" class="body&#45;2">Github</a> -->
-          <!--   <a href="javascript:;" class="body&#45;2">Other</a> -->
-          <!-- </v&#45;layout> -->
+          <div class="subheading text-xs-center grey--text pt-1 pb-3">Digital Nomad &middot; Vue Specialist</div>
+          <v-layout justify-space-around>
+            <v-tooltip bottom>
+              <v-btn slot="activator"
+                flat icon color="grey"
+                href="https://twitter.com/mauromadeit"
+              >
+                <v-icon>fa-twitter</v-icon>
+              </v-btn>
+              <span>tweet tweet</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator"
+                flat icon color="grey"
+                href="https://medium.com/@mauromadeit"
+              >
+                <v-icon>fa-medium</v-icon>
+              </v-btn>
+              <span>mostly Vue posts</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator"
+                flat icon color="grey"
+                href="https://stackoverflow.com/users/story/1387472"
+              >
+                <v-icon>fa-stack-overflow</v-icon>
+              </v-btn>
+              <span>developer story</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator"
+                flat icon color="grey"
+                href="https://github.com/maurop123/"
+              >
+                <v-icon>fa-github</v-icon>
+              </v-btn>
+              <span>lots of code</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator"
+                flat icon color="grey"
+                href="https://github.com/maurop123/"
+              >
+                <v-icon>fa-envelope</v-icon>
+              </v-btn>
+              <span>maurop123@gmail.com</span>
+            </v-tooltip>
+          </v-layout>
         </div>
       </v-flex>
       <v-flex xs12 md5 offset-md2>
