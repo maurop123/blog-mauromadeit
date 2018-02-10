@@ -14,9 +14,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "feedparser": "^2.2.9",
+    "request": "^2.83.0",
+    "rxjs": "^5.5.6",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuetify": "^0.17.6"
+    "vuetify": "^0.17.6",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
