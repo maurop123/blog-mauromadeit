@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout row wrap align-center>
-      <v-flex xs12 md4>
+      <v-flex xs12 md2>
         <div class="text-xs-center">
           <v-avatar size="225px">
             <img
@@ -60,38 +60,40 @@
           </v-layout>
         </div>
       </v-flex>
-      <v-flex xs12 md5 offset-md2>
-        <v-layout column justify-space-between fill-height class="page-height">
-          <v-flex v-for="post in postsSlice" :key="post.title">
-            <v-card class="my-3" hover>
-              <v-card-media v-if="post.img"
-                class="white--text"
-                height="170px"
-                :src="post.img"
-              />
-              <v-card-title>
-                <h2>
-                  {{ post.title }}
-                </h2>
-              </v-card-title>
-              <v-card-actions>
-                <v-btn v-if="post.type === 'medium'"
-                  flat block class="green--text"
-                >
-                  Read More on Medium
-                </v-btn>
-                <v-btn v-else
-                  flat block class="blue--text"
-                >
-                  Read More
-                </v-btn>
-              </v-card-actions>
-            </v-card>
+      <v-flex xs12 md4 offset-md3>
+        <v-container>
+          <v-layout column justify-space-between fill-height class="page-height">
+            <v-flex v-for="post in postsSlice" :key="post.title">
+              <v-card class="my-3" hover>
+                <v-card-media v-if="post.img"
+                  class="white--text"
+                  height="300px"
+                  :src="post.img"
+                />
+                <v-card-title>
+                  <h2>
+                    {{ post.title }}
+                  </h2>
+                </v-card-title>
+                <v-card-actions>
+                  <v-btn v-if="post.type === 'medium'"
+                    flat block class="green--text"
+                  >
+                    Read More on Medium
+                  </v-btn>
+                  <v-btn v-else
+                    flat block class="blue--text"
+                  >
+                    Read More
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          <v-flex class="text-xs-center">
+            <v-pagination v-model="postsPage" :length="postsPages" circle />
           </v-flex>
-        </v-layout>
-        <v-flex class="text-xs-center">
-          <v-pagination v-model="postsPage" :length="postsPages" circle />
-        </v-flex>
+        </v-container>
       </v-flex>
     </v-layout>
   </v-container>
