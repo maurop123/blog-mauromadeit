@@ -63,8 +63,8 @@
         </div>
       </v-flex>
       <v-flex xs12 md9>
-        <masonry :items="posts">
-          <v-card slot-scope="{ item }" :key="item.title">
+        <masonry :items="posts" :columns="dynamicColumns">
+          <v-card slot-scope="{ item }" :key="item.title" class="my-4">
             <v-card-media v-if="item.img"
               class="white--text"
               height="300px"
@@ -127,6 +127,12 @@
         const start = (this.postsPage - 1) * this.postsPageSize
         const end = start + this.postsPageSize
         return this.posts.slice(start, end)
+      },
+      dynamicColumns() {
+        const { $vuetify } = this
+        return ($vuetify.breakpoint.lgAndUp) ? 3
+        : ($vuetify.breakpoint.smAndUp) ? 2
+        : 1
       },
     },
   }
