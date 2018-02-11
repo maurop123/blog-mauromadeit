@@ -30,7 +30,7 @@
               >
                 <v-icon>fa-medium</v-icon>
               </v-btn>
-              <span>mostly Vue posts</span>
+              <span>Medium posts</span>
             </v-tooltip>
             <v-tooltip bottom>
               <v-btn slot="activator"
@@ -62,45 +62,35 @@
           </v-layout>
         </div>
       </v-flex>
-      <!-- <v&#45;flex xs12 md4 offset&#45;md3> -->
-      <!-- <v&#45;flex xs12 md8 offset&#45;md1> -->
-      <masonry xs12 md8 offset-md1 :items="posts">
-          <!-- <v&#45;layout column justify&#45;space&#45;between fill&#45;height class="page&#45;height"> -->
-          <!-- <v&#45;layout column v&#45;for="n in columns"> -->
-            <!-- <v&#45;flex v&#45;for="post in postsSlice" :key="post.title"> -->
-            <!-- <v&#45;flex slot&#45;scope="item" :key="item.title" xs12 md6> -->
-            <v-card slot-scope="{ item }" :key="item.title" class="my-3" hover>
-                <v-card-media v-if="item.img"
-                  class="white--text"
-                  height="300px"
-                  :src="item.img"
-                />
-                <v-card-title>
-                  <h2>
-                    {{ item.title }}
-                  </h2>
-                </v-card-title>
-                <v-card-actions>
-                  <v-btn v-if="item.type === 'medium'"
-                    flat block class="green--text"
-                    :href="item.url"
-                  >
-                    Read More on Medium
-                  </v-btn>
-                  <v-btn v-else
-                    flat block class="blue--text"
-                  >
-                    Read More
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            <!-- </v&#45;flex> -->
-          <!-- </v&#45;layout> -->
-          <!-- <v&#45;flex class="text&#45;xs&#45;center"> -->
-          <!--   <v&#45;pagination v&#45;model="postsPage" :length="postsPages" circle /> -->
-          <!-- </v&#45;flex> -->
-        <!-- </v&#45;flex> -->
-      </masonry>
+      <v-flex xs12 md9>
+        <masonry :items="posts">
+          <v-card slot-scope="{ item }" :key="item.title" class="my-3">
+              <v-card-media v-if="item.img"
+                class="white--text"
+                height="300px"
+                :src="item.img"
+              />
+              <v-card-title>
+                <h2>
+                  {{ item.title }}
+                </h2>
+              </v-card-title>
+              <v-card-actions>
+                <v-btn v-if="item.type === 'medium'"
+                  flat block class="green--text"
+                  :href="item.url"
+                >
+                  Read More on Medium
+                </v-btn>
+                <v-btn v-else
+                  flat block class="blue--text"
+                >
+                  Read More
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+        </masonry>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
