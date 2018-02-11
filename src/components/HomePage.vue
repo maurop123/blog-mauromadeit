@@ -113,7 +113,7 @@
     },
     data () {
       return {
-        postsPage:  1,
+        postsPage: 1,
         postsPageSize: 3,
         columns: 2,
       }

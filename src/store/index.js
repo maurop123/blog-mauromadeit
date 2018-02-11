@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// eslint-disable-next-line
 import { getFeed as getRSSFeed } from '@/utils/rss'
+// eslint-disable-next-line
 import { parseImage, parseDescription } from '@/utils/rss'
 import 'rxjs/add/operator/filter'
 
@@ -27,7 +29,7 @@ const actions = {
       const { title, link, description: desc } = post
       const description = parseDescription(desc) || null
       const img = parseImage(desc) || null
-      
+
       commit('pushPost', {
         title,
         description,

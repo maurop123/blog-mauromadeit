@@ -1,15 +1,18 @@
 <template>
   <v-container fluid grid-list-xl>
     <v-layout>
-      <v-flex v-for="n in columns" xs12
+      <v-flex v-for="n in columns" :key="n"
         :md6="columns === 2"
         :md4="columns === 3"
         :md3="columns === 4"
         :md2="columns === 6"
+        xs12
       >
         <v-layout column>
-          <v-flex v-for="item in itemsColumn[n-1]">
-            <slot :item="item"></slot>
+          <v-flex>
+            <template v-for="item in itemsColumn[n-1]">
+              <slot :item="item"></slot>
+            </template>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -27,7 +30,7 @@
         type: Number,
         default: 2,
         validator(val) {
-          return ( val === 6
+          return (val === 6
             || val === 4
             || val === 3
             || val === 2
