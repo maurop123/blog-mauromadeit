@@ -42,9 +42,18 @@ export function getFeed(url) {
   })
 }
 
+export function parseDescription(html) {
+  const $ = cheerio.load(html)
+
+  $('iframe').remove()
+  const desc = $.text()
+  return desc
+}
+
 export function parseImage(html) {
   const $ = cheerio.load(html)
   
   const img = $('figure img').attr('src')
   return img
 }
+

@@ -21,7 +21,7 @@
               >
                 <v-icon>fa-twitter</v-icon>
               </v-btn>
-              <span>tweet tweet</span>
+              <span>Tweet! Tweet!</span>
             </v-tooltip>
             <v-tooltip bottom>
               <v-btn slot="activator"
@@ -39,7 +39,7 @@
               >
                 <v-icon>fa-stack-overflow</v-icon>
               </v-btn>
-              <span>developer story</span>
+              <span>Developer story</span>
             </v-tooltip>
             <v-tooltip bottom>
               <v-btn slot="activator"
@@ -48,7 +48,7 @@
               >
                 <v-icon>fa-github</v-icon>
               </v-btn>
-              <span>lots of code</span>
+              <span>Lots of code</span>
             </v-tooltip>
             <v-tooltip bottom>
               <v-btn slot="activator"
@@ -64,31 +64,38 @@
       </v-flex>
       <v-flex xs12 md9>
         <masonry :items="posts">
-          <v-card slot-scope="{ item }" :key="item.title" class="my-3">
-              <v-card-media v-if="item.img"
-                class="white--text"
-                height="300px"
-                :src="item.img"
-              />
-              <v-card-title>
-                <h2>
-                  {{ item.title }}
-                </h2>
-              </v-card-title>
-              <v-card-actions>
-                <v-btn v-if="item.type === 'medium'"
-                  flat block class="green--text"
-                  :href="item.url"
-                >
-                  Read More on Medium
-                </v-btn>
-                <v-btn v-else
-                  flat block class="blue--text"
-                >
-                  Read More
-                </v-btn>
-              </v-card-actions>
-            </v-card>
+          <v-card slot-scope="{ item }" :key="item.title">
+            <v-card-media v-if="item.img"
+              class="white--text"
+              height="300px"
+              :src="item.img"
+            />
+            <v-card-title>
+              <h2>{{ item.title }}</h2>
+            </v-card-title>
+            <v-card-text v-if="item.description && !item.img"
+              class="truncate"
+            >
+              <div>
+                {{ item.description }}
+                <!-- <span class="ellipses"></span> -->
+              </div>
+              <div class="fade"></div>
+            </v-card-text>
+            <v-card-actions>
+              <v-btn v-if="item.type === 'medium'"
+                flat block class="green--text"
+                :href="item.link"
+              >
+                Read More on Medium
+              </v-btn>
+              <v-btn v-else
+                flat block class="blue--text"
+              >
+                Read More
+              </v-btn>
+            </v-card-actions>
+          </v-card>
         </masonry>
       </v-flex>
     </v-layout>
@@ -130,11 +137,38 @@
     font-weight: normal;
   }
 
+  .mt-8 {
+    margin-top: 160px !important;
+  }
+
   .page-height {
     min-height: 864px;
   }
 
-  .mt-8 {
-    margin-top: 160px !important;
+  .truncate {
+    /* max-height: 150px; */
+    max-height: 9em;
+    overflow: hidden;
+    /* doesn't work
+    text-overflow: ellipsis; */
+  }
+
+  .ellipses {
+    float: right;
+    position: relative;
+    top: -50px;
+    left: 300px;
+    width: 100px;
+    margin-left: -100px;
+    padding-right: 5px;
+  }
+
+  .fade {
+    position: absolute;
+    bottom: 52px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
   }
 </style>

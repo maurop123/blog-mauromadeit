@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getFeed as getRSSFeed, parseImage } from '@/utils/rss'
+import { getFeed as getRSSFeed } from '@/utils/rss'
+import { parseImage, parseDescription } from '@/utils/rss'
 import 'rxjs/add/operator/filter'
 
 Vue.use(Vuex)
@@ -23,11 +24,13 @@ const actions = {
     getRSSFeed('https://medium.com/feed/@mauromadeit')
     .filter(item => item.categories.length > 0)
     .subscribe(post => {
-      const { title, link } = post
-      const img = parseImage(post.description) || null
+      const { title, link, description: desc } = post
+      const description = parseDescription(desc) || null
+      const img = parseImage(desc) || null
       
       commit('pushPost', {
         title,
+        description,
         link,
         img,
         type: 'medium',
