@@ -1,0 +1,2 @@
+- composable stores
+- calling the store in the router
