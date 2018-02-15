@@ -3,12 +3,15 @@
 # Potential titles
 
 - A month in the life of a digital nomad
-- Digital nomad life - the good, the bad, the practical
 - Starting digital nomad life
 - First 60 days as a digital nomad
 - Tips on getting started as a digital nomad
 
-# Intro
+---
+
+![beautiful Argentine scenery]()
+
+For the last __ days, 
 
 I'm a web developer working for a small startup-like team in a bigger well-established company. What's great about such an arrangement is that you don't have the same life-or-death pressure that keeps you working 24/7 like most startups have, and your boss is likely open-minded enough to consider such an arrangement.
 
@@ -38,39 +41,39 @@ Some people plan ahead well, some have a good habit of reviewing the past, and s
 
 As for keeping track of experiences, I've made a habit of keeping a log, sometimes written, but usually in a Google Doc. Whenever I have a chance, I go to the end of it, write the time, the day of the week if it's the first entry of the day, and also the date if it's been a few days since I last tracked it. This structure makes it easy for me to keep chronological track of my experiences without interrupting my stream of consciousness. The exercise itself of explicitly going through an experience helps to notice things about them that I may want to learn from, decide to handle differently, or simply remember fondly.
 
-# The Good
+## Get A Data Plan On Your Mobile
 
-To start with some obvious benefits to the whole deal
+If you plan on relying public hotspots (like coffee shops) or even to get some work done while on the train or bus, realize that it may not always work. Asking the waiter if they have wifi and connecting with your phone before deciding to stay is a good habit, but it's not enough to let you know if the internet works well, or if it'll die within 30 minutes of using it.
 
-# The Bad
+A generous data plan and a phone with the mobile hotspot capability will likely come in handy many times. I pay about $25 / month for a plan with 4GB with the option to add data if needed. I haven't gone over 2GB yet, but am currently writing this tip in a house whose wifi unexpectedly died.
 
-## You can't read your boss' face on Slack
-
-Say goodbye to subtle social cues like body language or facial twitches that tell so much about what a person is likely thinking or feeling. If you think you've never noticed or relied on such inexplicits bits of info, you might start noticing them all of a sudden.
-
-# The Practical
-
-You may find a lot of articles or books telling you how to be a digital nomad, travel efficiently, or be effective in remote work, and while they're likely to help, none can tell you if you're doing it right. Mostly you gotta figure it out on your own. Since getting started is the hard part
-
-## Mobile Hotspot
-
-If you plan on travelling 
+**Bonus tip** - Try to convince your travel partner to get a plan with a different provider so that you can get the best coverage of two different companies!
 
 ## Setup Offline Workflow
 
-The truth is you won't always have internet, and while 
+The truth is you won't always have internet. Wouldn't it be great if you can still be productive anyway? I'll describe what I've done to set myself up to work offline as a frontend dev, but hopefully you can still apply some of the general ideas to your own workflow.
 
-## Discipline
+The main thing keeping me online as a frontend dev is downloading resources and API calls. The way to setup the first is simple. Just download and save those same resources to a file. Then whenever you're offline, you can comment out the line that goes online to find the resource and add a line to load the static file instead. Or if you really wanna get fancy, you can setup an OFFLINE environment variable to toggle between your online and offline code. That way you won't accidentilly push your offline code to production. Depending on your compiler, this code can also be automatically removed in your production build.
 
-As inpiring as the novelty is, it can also be very distracting.
+As for API calls, what I did was to copy the data from the response for each API call I use, and save them in static files as well. This is great mock data for unit tests, too. Then I just include this data in my app's offline code. It works surprisingly well. So much so that I sometimes use my offline mode even when I have internet because it's faster than waiting on network requests anyway. Chances are you may already be mostly setup if your big on best practices and follow the principle of developing completely locally.
 
-The best description I've 
+This all might sound easy, but really, it can take a while to setup, and you can't do it after you've lost connection, so it requires you invest some of your precious online time to do it. The upside is that you can enjoy beautiful country-side vistas while on the train between towns. Like this one!
+
+![beautiful country-side vista]()
+
+## Practice Discipline
+
+As inpiring as the novelty is, it can also be very distracting. The best description I've heard for discipline is that it's not something you've either got or you don't. It is actively deciding to say "No" to distractions until your task is complete. Another version is to not let any excuse keep you from doing what you originally said you'd do. From this perspective, discipline is more like a muscle, and the more you exercise it, the stronger you get at focusing on your goals.
+
+One obvious way I exercise discipline was to avoid distractions while working in public. That meant resisting the reflex to look at each passerby. If you're interested in reading more about changing habits, here's a post I wrote on [the power of "instead"]().
+
+Another way I used this was to get out of bed early every morning. It may not be for everyone, but getting the extra couple of hours to myself in the morning really helped to get ahead in my work to make more time for enjoying the fun things that would come up in the evening. **Bonus tip** - People party at night, everywhere.
 
 ## Mastering Communication
 
 ### With your boss
 
-Probably the most important thing is to figure out is what your boss *really* cares about. Why? Because when you don't know what he/she is thinking, it helps to keep in mind what the top thing on their list is anyway.
+Unfortunately, you can't read your boss' face on Slack, so probably the most important thing is to figure out is what your boss *really* cares about. Why? Because when you don't know what he/she is thinking, it helps to keep in mind what the top thing on their list is anyway.
 
 Your boss will also probably want to know when you're going to be online but mostly offline during their working hours. Make sure to overlap at least a couple hours with the rest of your team, but if you can swing it, 4 or more is great, especially to start.
 
