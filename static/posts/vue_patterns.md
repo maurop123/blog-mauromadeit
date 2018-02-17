@@ -1,2 +1,6 @@
 - composable stores
 - calling the store in the router
+- dispatch observable
+- vuetify masonry codepen
+- `<slot v-model="{ ...item }" />` and `slot-scope="dealer"`. dunno if this works
+ - or `<slot :item="item" />` and `slot-scope="{ item: dealer }"`. this one def works
