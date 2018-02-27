@@ -50,7 +50,13 @@ export function parseDescription(html) {
   return desc
 }
 
-export function parseImage(html) {
+export function parseImage(image) {
+  const { isHtmlEncoded } = image[0].url[0].$
+  const url = image[0].url[0]._
+  return (isHtmlEncoded) ? decodeURIComponent(url) : url
+}
+
+export function parseImageFromDescrip(html) {
   const $ = cheerio.load(html)
 
   const img = $('figure img').attr('src')

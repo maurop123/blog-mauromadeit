@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import 'rxjs/add/operator/filter'
-import { parseImage, parseDescription } from '@/utils/rss'
-import MediumXml from '~Static/medium.xml'
+import { parseImage, parseImageFromDescrip, parseDescription } from '@/utils/rss'
+import MediumXml from '~Static/mediumClean.xml'
 import Posts from '@/posts'
 
 Vue.use(Vuex)
@@ -30,9 +30,10 @@ const actions = {
     MediumXml.rss.channel[0].item
     .filter(item => item.category && item.category.length > 0)
     .map(post => {
-      const { title, link, 'content:encoded': desc } = post
+      const { title, link, 'content:encoded': desc, image } = post
       const description = parseDescription(desc[0]) || null
-      const img = parseImage(desc[0]) || null
+      const img = (image) ? parseImage(image)
+      : parseImageFromDescrip(desc[0]) || null
 
       commit('pushPost', {
         title: title[0],
