@@ -77,6 +77,10 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
+      {
+        test: /\.md$/,
+        use: 'raw-loader'
+      },
       { test: /\.xml$/, loader: 'xml-loader' },
     ]
   },

@@ -27,6 +27,7 @@ module.exports = {
     'key-spacing': 'warn',
     'no-cond-assign': 'warn',
     'no-multiple-empty-lines': 'warn',
+    'no-multi-spaces': 'warn',
     'no-trailing-spaces': 'warn',
     'no-unused-vars': 'warn',
     'operator-linebreak': 0,

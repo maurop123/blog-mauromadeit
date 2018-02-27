@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// eslint-disable-next-line
-import { getFeed as getRSSFeed } from '@/utils/rss'
-// eslint-disable-next-line
-import { parseImage, parseDescription } from '@/utils/rss'
 import 'rxjs/add/operator/filter'
+import { parseImage, parseDescription } from '@/utils/rss'
 import MediumXml from '~Static/medium.xml'
+import Posts from '@/posts'
 
 Vue.use(Vuex)
 
@@ -21,7 +19,12 @@ const mutations = {
 
 const actions = {
   init({ dispatch }) {
+    dispatch('getLocalPosts')
     dispatch('getMediumPosts')
+  },
+  getLocalPosts({ commit }) {
+    Posts.filter(({ publish }) => publish)
+    .forEach(post => commit('pushPost', post))
   },
   getMediumPosts({ commit }) {
     MediumXml.rss.channel[0].item
@@ -35,23 +38,6 @@ const actions = {
         title: title[0],
         description,
         link: link[0],
-        img,
-        type: 'medium',
-      })
-    })
-  },
-  getLiveMediumPosts({ commit }) {
-    getRSSFeed('https://medium.com/feed/@mauromadeit')
-    .filter(item => item.categories.length > 0)
-    .subscribe(post => {
-      const { title, link, description: desc } = post
-      const description = parseDescription(desc) || null
-      const img = parseImage(desc) || null
-
-      commit('pushPost', {
-        title,
-        description,
-        link,
         img,
         type: 'medium',
       })

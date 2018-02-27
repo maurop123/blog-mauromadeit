@@ -1,6 +1,6 @@
 {
   "name": "blog",
-  "version": "0.17.6",
+  "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "mauro <maurop123@gmail.com>",
   "private": true,
@@ -12,12 +12,13 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
-    "postbuild": "rsync -raze \"ssh -i /home/mauro/.ssh/godaddy.pem\" --progress --delete /home/mauro/code/blog/dist/ mauromadeit@160.153.41.2:/home/mauromadeit/public_html/"
+    "postbuild": "rsync -raze \"ssh -i /home/mauro/.ssh/godaddy.pem\" --progress --delete /home/mauro/code/blog/dist/ mauromadeit@160.153.41.2:/home/mauromadeit/public_html/mauromadeit/"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "feedparser": "^2.2.9",
     "lodash": "^4.17.5",
+    "markdown": "^0.5.0",
     "request": "^2.83.0",
     "rxjs": "^5.5.6",
     "vue": "^2.5.2",
@@ -69,6 +70,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.6.0",
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
