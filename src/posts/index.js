@@ -1,7 +1,10 @@
+import DigitalNomad from '@/posts/digital_nomad.md'
+
 const posts = [{
-  content: import('@/posts/digital_nomad.md'),
+  content: DigitalNomad,
   title: 'Digital Nomad',
-  publish: false,
+  homepage: true,
+  link: 'digital-nomad',
 }]
 
 export default posts

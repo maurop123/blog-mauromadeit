@@ -11,6 +11,10 @@ const state = {
   posts: [],
 }
 
+const getters = {
+  getPostByLink: state => link => state.posts.find(p => p.link === link)
+}
+
 const mutations = {
   pushPost(state, payload) {
     state.posts.push(payload)
@@ -23,7 +27,7 @@ const actions = {
     dispatch('getMediumPosts')
   },
   getLocalPosts({ commit }) {
-    Posts.filter(({ publish }) => publish)
+    Posts.filter(({ homepage }) => homepage)
     .forEach(post => commit('pushPost', post))
   },
   getMediumPosts({ commit }) {
@@ -48,6 +52,7 @@ const actions = {
 
 const store = new Vuex.Store({
   state,
+  getters,
   mutations,
   actions,
 })

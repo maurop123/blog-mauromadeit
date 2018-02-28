@@ -91,6 +91,7 @@
               </v-btn>
               <v-btn v-else
                 flat block class="blue--text"
+                :to="`blog/${item.link}`"
               >
                 Read More
               </v-btn>

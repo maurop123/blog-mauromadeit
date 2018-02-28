@@ -11,11 +11,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-    },
-    {
-      path: '/blog/:postTitle',
+    }, {
+      path: '/blog/:postLink',
       name: 'post',
       component: Post,
+      props: true,
     },
   ]
 })
