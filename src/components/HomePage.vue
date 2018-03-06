@@ -65,6 +65,7 @@
       <v-flex xs12 md9>
         <masonry :items="posts" :columns="dynamicColumns">
           <v-card slot-scope="{ item }" :key="item.title" class="my-4">
+          <template v-if="item.type === 'medium'">
             <v-card-media v-if="item.img"
               class="white--text"
               height="300px"
@@ -83,19 +84,39 @@
               <div class="fade"></div>
             </v-card-text>
             <v-card-actions>
-              <v-btn v-if="item.type === 'medium'"
-                flat block class="green--text"
+              <v-btn flat block class="green--text"
                 :href="item.link"
               >
                 Read More on Medium
               </v-btn>
-              <v-btn v-else
-                flat block class="blue--text"
-                :to="`blog/${item.link}`"
-              >
-                Read More
-              </v-btn>
             </v-card-actions>
+            </template>
+            <template v-else>
+              <v-card-media v-if="item.img"
+                class="white--text"
+                height="300px"
+                :src="item.img"
+              />
+              <v-card-title>
+                <h2>{{ item.title }}</h2>
+              </v-card-title>
+              <v-card-text v-if="item.description && !item.img"
+                class="truncate"
+              >
+                <div>
+                  {{ item.description }}
+                  <!-- <span class="ellipses"></span> -->
+                </div>
+                <div class="fade"></div>
+              </v-card-text>
+              <v-card-actions>
+                <v-btn flat block class="blue--text"
+                  :to="`blog/${item.link}`"
+                >
+                  Read More
+                </v-btn>
+              </v-card-actions>
+            </template>
           </v-card>
         </masonry>
       </v-flex>

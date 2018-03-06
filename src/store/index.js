@@ -27,8 +27,7 @@ const actions = {
     dispatch('getMediumPosts')
   },
   getLocalPosts({ commit }) {
-    Posts.filter(({ homepage }) => homepage)
-    .forEach(post => commit('pushPost', post))
+    Posts.forEach(post => commit('pushPost', post))
   },
   getMediumPosts({ commit }) {
     MediumXml.rss.channel[0].item
