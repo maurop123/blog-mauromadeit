@@ -1,0 +1,9 @@
+- main resource - https://stackoverflow.com/questions/45298859/how-to-publish-a-library-of-vue-js-components#answer-45299835
+- gotcha - npm install `Permission denied (publickey)` bitbucket
+ - resource - https://stackoverflow.com/questions/24989694/cannot-npm-install-from-bitbucket-repo
+ - solution - npm i -S git+https://sudosit@bitbucket.org/watscocomfortcloud/sentree-common-components.git
+  - https://stackoverflow.com/questions/17509669/how-to-install-an-npm-package-from-github-directly
+- gotcha - `npm ERR! May not delete: /path/node_modules/.bin` 
+ - resource - https://github.com/npm/npm/issues/17781
+ - solition - `npm install npm@latest -g`
+ - open pr for readme update - https://github.com/exogen/postinstall-build#bugs-in-npm
