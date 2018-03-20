@@ -109,7 +109,12 @@
                 </div>
                 <div class="fade"></div>
               </v-card-text>
-              <v-card-actions>
+              <v-card-text v-else>
+                <div v-html="item.content">
+                  <!-- <span class="ellipses"></span> -->
+                </div>
+              </v-card-text>
+              <v-card-actions v-if="item.link">
                 <v-btn flat block class="blue--text"
                   :to="`blog/${item.link}`"
                 >

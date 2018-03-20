@@ -4,6 +4,7 @@ import 'rxjs/add/operator/filter'
 import { parseImage, parseImageFromDescrip, parseDescription } from '@/utils/rss'
 import MediumXml from '~Static/mediumClean.xml'
 import Posts from '@/posts'
+import { db, posterDB } from '@/database'
 
 Vue.use(Vuex)
 
@@ -19,15 +20,27 @@ const mutations = {
   pushPost(state, payload) {
     state.posts.push(payload)
   },
+  unshiftPost(state, payload) {
+    state.posts.unshift(payload)
+  },
 }
 
 const actions = {
   init({ dispatch }) {
+    dispatch('getFirebasePosts')
     dispatch('getLocalPosts')
     dispatch('getMediumPosts')
   },
+  getFirebasePosts({ commit }) {
+    const path = `destinations/mauromadeit/posts`
+    posterDB.get(path).subscribe(col => {
+      if (col) col.filter(p => p.published)
+      .forEach(post => commit('unshiftPost', post))
+    })
+  },
   getLocalPosts({ commit }) {
-    Posts.forEach(post => commit('pushPost', post))
+    Posts.filter(post => post.homepage)
+    .forEach(post => commit('pushPost', post))
   },
   getMediumPosts({ commit }) {
     MediumXml.rss.channel[0].item
