@@ -10,7 +10,6 @@ function get(path = '/') {
   return Observable.create((observer) => {
     const ref = fb.child(path)
 
-      console.log('posterDB get path', path)
     ref.once('value', (snap) => {
       if (snap.val()) {
         observer.next( objToArry(snap.val()) )
