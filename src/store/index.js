@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import 'rxjs/add/operator/filter'
 import { parseImage, parseImageFromDescrip, parseDescription } from '@/utils/rss'
 import MediumXml from '~Static/mediumClean.xml'
-import Posts from '@/posts'
 import { db, posterDB } from '@/database'
 
 Vue.use(Vuex)
@@ -29,7 +28,7 @@ const actions = {
   init({ dispatch }) {
     dispatch('getFirebasePosts')
     dispatch('getLocalPosts')
-    dispatch('getMediumPosts')
+    dispatch('')
   },
   getFirebasePosts({ commit }) {
     const path = `destinations/mauromadeit/posts`
@@ -39,10 +38,6 @@ const actions = {
     })
   },
   getLocalPosts({ commit }) {
-    Posts.filter(post => post.homepage)
-    .forEach(post => commit('pushPost', post))
-  },
-  getMediumPosts({ commit }) {
     MediumXml.rss.channel[0].item
     .filter(item => item.category && item.category.length > 0)
     .map(post => {
