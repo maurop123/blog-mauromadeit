@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -12,3 +12,18 @@ export default new Router({
     },
   ]
 })
+
+Vue.use(VueAnalytics, {
+  id: 'UA-116400276-1',
+  router,
+  autoTracking: {
+    page: process.env.NODE_ENV !== 'development'
+  },
+  debug: process.env.DEBUG ? {
+    enabled: true,
+    trace: false,
+    sendHitTask: true
+  } : false
+})
+
+export default router
