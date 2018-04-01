@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueAnalytics from 'vue-analytics'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 Vue.use(Router)
