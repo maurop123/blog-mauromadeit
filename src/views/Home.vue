@@ -1,13 +1,14 @@
 <template>
-  <v-container fluid>
-    <v-layout row wrap>
-      <v-flex xs12 md3 class="mt-8">
-        <home-static-side />
-      </v-flex>
-      <v-flex xs12 md9>
-        <masonry :items="posts" :columns="dynamicColumns">
-          <v-card slot-scope="{ item }" :key="item.title" class="my-4">
-          <template v-if="item.type === 'medium'">
+  <vert-split-posts>
+    <intro-side slot="side" />
+    <masonry
+      slot="posts"
+      :items="posts"
+      :columns="dynamicColumns"
+    >
+      <div slot-scope="{ item }" :key="item.title">
+        <template v-if="item.type === 'medium'">
+          <v-card class="my-4">
             <v-card-media v-if="item.img"
               class="white--text"
               height="300px"
@@ -32,55 +33,36 @@
                 Read More on Medium
               </v-btn>
             </v-card-actions>
-            </template>
-            <template v-else>
-              <v-card-media v-if="item.img"
-                class="white--text"
-                height="300px"
-                :src="item.img"
-              />
-              <v-card-title>
-                <h2>{{ item.title }}</h2>
-              </v-card-title>
-              <v-card-text v-if="item.description && !item.img"
-                class="truncate"
-              >
-                <div>
-                  {{ item.description }}
-                  <!-- <span class="ellipses"></span> -->
-                </div>
-                <div class="fade"></div>
-              </v-card-text>
-              <v-card-text v-else>
-                <div v-html="item.content">
-                  <!-- <span class="ellipses"></span> -->
-                </div>
-              </v-card-text>
-              <v-card-actions v-if="item.link">
-                <v-btn flat block class="blue--text"
-                  :to="`blog/${item.link}`"
-                >
-                  Read More
-                </v-btn>
-              </v-card-actions>
-            </template>
           </v-card>
-        </masonry>
-      </v-flex>
-    </v-layout>
-  </v-container>
+        </template>
+        <template v-else>
+          <post :post="item" />
+        </template>
+      </div>
+    </masonry>
+  </vert-split-posts>
 </template>
 
 <script>
   import { mapState } from 'vuex'
-  import HomeStaticSide from '@/components/HomeStaticSide'
-  import Masonry from '@/components/MasonryLayout'
+  import IntroSide from '@/components/IntroSide'
+  // import Masonry from 'mauromadeit/components/MasonryLayout'
+  import { components } from 'mauromadeit-vue-commons'
+  const {
+    MasonryGrid: Masonry,
+    PostCard: Post,
+    layouts,
+  } = components
+
+  const { VertSplitPosts } = layouts
 
   export default {
     name: 'home-page',
     components: {
-      HomeStaticSide,
+      IntroSide,
       Masonry,
+      Post,
+      VertSplitPosts,
     },
     data () {
       return {
@@ -114,22 +96,6 @@
     font-weight: normal;
   }
 
-  .mt-8 {
-    margin-top: 160px !important;
-  }
-
-  .page-height {
-    min-height: 864px;
-  }
-
-  .truncate {
-    /* max-height: 150px; */
-    max-height: 9em;
-    overflow: hidden;
-    /* doesn't work
-    text-overflow: ellipsis; */
-  }
-
   .ellipses {
     float: right;
     position: relative;
@@ -138,14 +104,5 @@
     width: 100px;
     margin-left: -100px;
     padding-right: 5px;
-  }
-
-  .fade {
-    position: absolute;
-    bottom: 52px;
-    left: 0;
-    height: 50px;
-    width: 100%;
-    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
   }
 </style>
