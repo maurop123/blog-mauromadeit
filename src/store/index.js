@@ -27,8 +27,7 @@ const mutations = {
 const actions = {
   init({ dispatch }) {
     dispatch('getFirebasePosts')
-    dispatch('getLocalPosts')
-    dispatch('')
+    // dispatch('getLocalPosts')
   },
   getFirebasePosts({ commit }) {
     const path = `destinations/mauromadeit/posts`
