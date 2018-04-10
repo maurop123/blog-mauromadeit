@@ -4,7 +4,7 @@
     <div
       slot="posts"
     >
-      <section id="speaking">
+      <section id="speaking" class="my-5">
         <h3 class="display-1">Speaking</h3>
         <x-scroller class="my-4">
           <grid-list class="my-3">
@@ -15,7 +15,7 @@
         </x-scroller>
       </section>
       <hr />
-      <section id="writing">
+      <section id="writing" class="my-5">
         <h3 class="display-1">Writing</h3>
         <x-scroller class="my-4">
           <grid-list class="my-3">

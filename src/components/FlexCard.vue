@@ -10,11 +10,11 @@
       <v-card-title v-if="title">
         <h3 class="headline">{{ title }}</h3>
       </v-card-title>
-      <v-card-text v-if="item.description"
+      <v-card-text v-if="description"
         class="truncate"
       >
         <div>
-          {{ item.description }}
+          {{ description }}
           <!-- <span class="ellipses"></span> -->
         </div>
         <div class="fade"></div>
@@ -37,6 +37,7 @@
     name: 'flex-card',
     props: {
       title: String,
+      description: String,
       img: Object,
       link: Object,
     },
