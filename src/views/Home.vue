@@ -5,16 +5,16 @@
       <scrolling-section :items="writing" title="Writing" />
       <scrolling-section :items="speaking" title="Speaking" />
       <!-- <scrolling&#45;section :items="posts" title="Blog" post /> -->
-      <section id="blog" class="my-5">
-        <h2 class="display-1">Blog</h2>
-        <v-layout row wrap>
-          <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg4 offset-lg4
-           v-for="post in posts" :key="post.id"
-          >
-            <post-card :post="post" />
-          </v-flex>
-        </v-layout>
-      </section>
+      <!-- <section id="blog" class="my&#45;5"> -->
+      <!--   <h2 class="display&#45;1">Blog</h2> -->
+      <!--   <v&#45;layout row wrap> -->
+      <!--     <v&#45;flex xs12 sm8 offset&#45;sm2 md6 offset&#45;md3 lg4 offset&#45;lg4 -->
+      <!--      v&#45;for="post in posts" :key="post.id" -->
+      <!--     > -->
+      <!--       <post&#45;card :post="post" /> -->
+      <!--     </v&#45;flex> -->
+      <!--   </v&#45;layout> -->
+      <!-- </section> -->
     </div>
   </vert-split-posts>
 </template>
