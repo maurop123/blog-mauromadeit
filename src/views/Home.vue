@@ -3,8 +3,18 @@
     <intro-side slot="side" />
     <div slot="posts">
       <scrolling-section :items="writing" title="Writing" />
-      <hr />
       <scrolling-section :items="speaking" title="Speaking" />
+      <!-- <scrolling&#45;section :items="posts" title="Blog" post /> -->
+      <section id="blog" class="my-5">
+        <h2 class="display-1">Blog</h2>
+        <v-layout row wrap>
+          <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg4 offset-lg4
+           v-for="post in posts" :key="post.id"
+          >
+            <post-card :post="post" />
+          </v-flex>
+        </v-layout>
+      </section>
     </div>
   </vert-split-posts>
 </template>
@@ -18,10 +28,12 @@
   import { components } from 'mauromadeit-vue-commons'
   const {
     FlexCard,
+    PostCard,
     layouts,
   } = components
   const {
     GridList,
+    MasonryGrid,
     VertSplitPosts,
     HorizontalScroller: XScroller,
   } = layouts
@@ -30,12 +42,13 @@
     name: 'scrolling-section',
     template: `
       <section :id="name" class="my-5">
-        <h3 class="display-1">{{ title }}</h3>
+        <h2 class="display-1">{{ title }}</h2>
         <x-scroller class="my-4">
           <grid-list class="my-3">
-            <flex-card v-for="item in items"
-              v-bind="item"
-            />
+            <template v-for="item in items">
+              <post-card v-if="post" :post="item" />
+              <flex-card v-else v-bind="item" />
+            </template>
           </grid-list>
         </x-scroller>
       </section>
@@ -43,11 +56,13 @@
     components: {
       FlexCard,
       GridList,
+      PostCard,
       XScroller,
     },
     props: {
       items: Array,
       title: String,
+      post: Boolean,
     },
     computed: {
       name() {
@@ -59,10 +74,9 @@
   export default {
     name: 'home-page',
     components: {
-      FlexCard,
-      GridList,
-      XScroller,
+      PostCard,
       IntroSide,
+      MasonryGrid,
       ScrollingSection,
       VertSplitPosts,
     },

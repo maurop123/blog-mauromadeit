@@ -30,10 +30,18 @@ const actions = {
     // dispatch('getLocalPosts')
   },
   getFirebasePosts({ commit }) {
-    const path = `destinations/mauromadeit/posts`
-    posterDB.get(path).subscribe(col => {
-      if (col) col.filter(p => p.published)
-      .forEach(post => commit('unshiftPost', post))
+    return new Promise((resolve, reject) => {
+      const path = `destinations/mauromadeit/posts`
+      posterDB.get(path).subscribe(col => {
+        if (col) {
+          resolve(col)
+
+          col.filter(p => p.published)
+          .forEach(post => commit('unshiftPost', post))
+        } else {
+          reject(col)
+        }
+      })
     })
   },
   getLocalPosts({ commit }) {
