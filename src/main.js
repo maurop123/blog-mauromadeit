@@ -6,8 +6,12 @@ import router from './router'
 import store from './store'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import { vBlog } from 'mauromadeit-vue-commons'
 
 Vue.use(Vuetify)
+Vue.use(vBlog, {
+  router,
+})
 
 Vue.config.productionTip = false
 
