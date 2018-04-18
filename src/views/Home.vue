@@ -4,7 +4,7 @@
     <div slot="posts">
       <scrolling-section :items="writing" title="Writing" />
       <scrolling-section :items="speaking" title="Speaking" />
-      <!-- <scrolling&#45;section :items="posts" title="Blog" post /> -->
+      <scrolling-section :items="posts" title="Blog" post />
       <!-- <section id="blog" class="my&#45;5"> -->
       <!--   <h2 class="display&#45;1">Blog</h2> -->
       <!--   <v&#45;layout row wrap> -->

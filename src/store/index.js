@@ -4,6 +4,9 @@ import 'rxjs/add/operator/filter'
 import { parseImage, parseImageFromDescrip, parseDescription } from '@/utils/rss'
 import MediumXml from '~Static/mediumClean.xml'
 import { db, posterDB } from '@/database'
+import { store as Store } from 'mauromadeit-vue-commons'
+console.log('Store', Store)
+const { getItByKey } = Store
 
 Vue.use(Vuex)
 
@@ -11,8 +14,11 @@ const state = {
   posts: [],
 }
 
+
 const getters = {
-  getPostByLink: state => link => state.posts.find(p => p.link === link)
+  getPostByLink: getItByKey('posts', 'link'),
+    //state => link => state.posts.find(p => p.link === link)
+  getPostById: getItByKey('posts', 'id'),
 }
 
 const mutations = {
