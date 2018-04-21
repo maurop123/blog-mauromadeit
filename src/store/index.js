@@ -5,7 +5,6 @@ import { parseImage, parseImageFromDescrip, parseDescription } from '@/utils/rss
 import MediumXml from '~Static/mediumClean.xml'
 import { db, posterDB } from '@/database'
 import { store as Store } from 'mauromadeit-vue-commons'
-console.log('Store', Store)
 const { getItByKey } = Store
 
 Vue.use(Vuex)
