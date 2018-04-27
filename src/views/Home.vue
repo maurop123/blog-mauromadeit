@@ -49,12 +49,11 @@
   // import Masonry from 'mauromadeit/components/MasonryLayout'
   import { components } from 'mauromadeit-vue-commons'
   const {
-    MasonryGrid: Masonry,
     PostCard: Post,
     layouts,
   } = components
 
-  const { VertSplitPosts } = layouts
+  const { MasonryGrid: Masonry, VertSplitPosts } = layouts
 
   export default {
     name: 'home-page',

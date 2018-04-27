@@ -20,7 +20,7 @@
     "firebase": "^4.11.0",
     "lodash": "^4.17.5",
     "markdown": "^0.5.0",
-    "mauromadeit-vue-commons": "https://github.com/maurop123/vue-commons.git",
+    "mauromadeit-vue-commons": "file:../commons-vue",
     "request": "^2.83.0",
     "rxjs": "^5.5.6",
     "vue": "^2.5.2",
